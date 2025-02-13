@@ -1,9 +1,9 @@
 {
   "user": [
     {
-      "name": "Clementine",
-      "email": "Nathan@yesenia.net",
-      "phone": "1-463-123-444",
+      "name": "Gaurav Ganesh Katkar",
+      "email": "katkargaurav6@gmail.com",
+      "phone": "+91865247396",
       "id": "3"
     },
     {
@@ -58,12 +58,6 @@
       "name": "asfasf",
       "email": "gau.kat.rt23@gmail.com",
       "phone": "87674575"
-    },
-    {
-      "id": "2",
-      "name": "Noname",
-      "email": "katkargaurav992001@gmail.com",
-      "phone": "+918658585"
     }
   ]
 }

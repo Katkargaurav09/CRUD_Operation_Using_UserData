@@ -1,96 +1,190 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
 }
-.popup-form-container,.read-data-container,.update-container-form{
-    display: none;
+:root {
+  --bgc-color: #141d2f;
+  --card-color: #1e2a47;
+  --stats-color: #fff;
+  --logo-color: #fff;
+  --stats-color: #697c9a;
+  --bio-color: #fff;
+  --btn-color: #0079ff;
+}
+body {
+  background-color: var(--bgc-color);
+  color: var(--logo-color);
+  overflow-y: hidden;
+}
+.popup-form-container,
+.read-data-container,
+.update-container-form {
+  display: none;
+  width: 100%;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.container > article {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.display-form-update {
+  font-size: 22px;
+  color: var(--bio-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+table {
+  width: 100%;
+}
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px 20px;
+}
+th {
+  background: purple;
+  color: #fff;
+}
+.sub-container,
+.sub-read,
+.sub-container-update {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.fa-x {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: purple;
+  font-size: 20px;
+  cursor: pointer;
+}
+.sub-container > form,
+.sub-container-update > form,
+.main-read {
+  width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: var(--card-color);
+  border-radius: 5px;
+  position: relative;
+}
+.sub-container > form > h1,
+.sub-container-update > form > h1 {
+  text-align: center;
+  color: purple;
+}
+.sub-container > form > hr,
+.sub-container-update > form > hr {
+  border: none;
+  height: 1px;
+  background: purple;
+}
+.sub-container > form > input,
+.sub-container-update > form > input {
+  padding: 10px 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  outline: none;
+}
+.sub-container > form > button,
+.sub-container-update > form > button {
+  padding: 10px 20px;
+  border: none;
+  background: purple;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+tbody > tr > td {
+  text-align: center;
+  background-color: var(--card-color);
+}
+td > button {
+  padding: 5px;
+  background-color: var(--btn-color);
+  color: var(--bio-color);
+  border-radius: 5px;
+  border: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container > article {
+    width: 90%;
+  }
+  .sub-container > form,
+  .sub-container-update > form,
+  .main-read {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container > article {
+    width: 95%;
+  }
+  table {
+    font-size: 14px;
+  }
+  table,
+  tr,
+  th,
+  td {
+    padding: 10px;
+  }
+  .fa-x {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container > article {
     width: 100%;
-}
-.container{
-    width: 100%;
-    height: 100vh;
-}
-.container > article{
-    width: 80%;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.display-form-update{
-    font-size: 22px;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-}
-table{
-    width: 100%;
-}
-table,tr,th,td{
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 15px 20px;
-}
-th{
-    background: purple;
-    color: #fff;
-}
-.sub-container,.sub-read,.sub-container-update{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-.fa-x{
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    color: purple;
-    font-size: 20px;
-    cursor: pointer;
-}
-.sub-container > form,.sub-container-update > form,.main-read{
-    width: 400px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background: #fff;
-    border-radius: 5px;
-    position: relative;
-}
-.sub-container > form > h1,.sub-container-update > form > h1{
-    text-align: center;
-    color: purple;
-}
-.sub-container > form > hr,.sub-container-update > form > hr{
-    border: none;
-    height: 1px;
-    background: purple;
-}
-.sub-container > form > input,.sub-container-update > form > input{
-    padding: 10px 20px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    outline: none;
-}
-.sub-container > form > button,.sub-container-update > form > button{
-    padding: 10px 20px;
-    border: none;
-    background: purple;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-tbody > tr > td{
-    text-align: center;
-}
-td > button{
-    padding: 2px;
+    margin: 20px auto;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .sub-container > form,
+  .sub-container-update > form,
+  .main-read {
+    width: 95%;
+    padding: 15px;
+  }
+  .sub-container > form > input,
+  .sub-container-update > form > input {
+    padding: 8px;
+  }
+  .sub-container > form > button,
+  .sub-container-update > form > button {
+    padding: 8px;
+  }
+  td > button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
 }
