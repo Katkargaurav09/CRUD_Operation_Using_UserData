@@ -48,8 +48,18 @@ readDataForm.addEventListener("submit", (e) => {
 });
 
 async function fetchData(e) {
-  let data = await window.fetch("http://localhost:3000/user");
-  let finalData = await data.json();
+  let apiUrl = "https://api.jsonbin.io/v3/b/67adefa8ad19ca34f801ff95"; // Replace with your bin ID
+  let masterKey = "$2a$10$Y/ijunFb6ztoqmWD0f8S6Oqd7Mum9f4EjMH.2D3NOUk4ajc6xYISS"; // Only needed for private bins
+
+  let response = await fetch(apiUrl, {
+    headers: {
+      "X-Master-Key": masterKey // Omit if your bin is public
+    }
+  });
+
+  let result = await response.json();
+  let finalData = result.record.users;
+  
   let tbody = document.querySelector("tbody");
   finalData.forEach((v, i) => {
     let { id, name, email, phone } = v;
